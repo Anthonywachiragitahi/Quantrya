@@ -3,43 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quantrya</title>
+<title>Quantrya – Code the Future</title>
 
 <style>
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f2f2f2;
     scroll-behavior: smooth;
+    background: #f2f2f2;
 }
 
+/* Header */
 header {
     background-color: #000033;
     color: white;
     padding: 20px;
     text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 /* Optional logo */
 header img {
-    max-width: 150px;
+    max-width: 120px;
     display: block;
     margin: 0 auto 10px auto;
 }
 
+/* Navigation */
 nav {
     background-color: #333;
-    padding: 10px;
     text-align: center;
+    padding: 10px;
 }
 
 nav a {
     color: white;
-    margin: 15px;
+    margin: 10px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -48,25 +48,27 @@ nav a:hover {
     color: #00ccff;
 }
 
+/* Hero section */
 .hero {
     background: linear-gradient(90deg, #0055aa, #00ccff);
     color: white;
-    padding: 80px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 15px;
 }
 
 .hero button {
     background-color: white;
     color: #0055aa;
-    padding: 15px 30px;
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .hero button:hover {
@@ -74,23 +76,50 @@ nav a:hover {
     color: white;
 }
 
+/* Container */
 .container {
     padding: 20px;
 }
 
+/* Card styles */
 .card {
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #ccc;
 }
 
+/* Contact form */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #0055aa;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #00ccff;
+}
+
+/* Footer */
 footer {
     background-color: #000033;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 </style>
 </head>
@@ -98,7 +127,7 @@ footer {
 <body>
 
 <header>
-    <!-- Optional logo: add your image file as quantrya_logo.png -->
+    <!-- Optional logo -->
     <!-- <img src="quantrya_logo.png" alt="Quantrya Logo"> -->
     <h1>Quantrya</h1>
     <p>Code the Future</p>
@@ -114,9 +143,7 @@ footer {
 <div class="hero" id="home">
     <h1>Welcome to Quantrya</h1>
     <p>Professional. Innovative. Future-ready.</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        Contact Us
-    </button>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
 </div>
 
 <div class="container">
@@ -137,11 +164,11 @@ footer {
     </div>
 
     <h2 id="contact">Contact</h2>
-    <div class="card">
+    <div class="card contact-form">
         <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
             <button type="submit">Send Message</button>
         </form>
         <p>Phone: 0703186111</p>
