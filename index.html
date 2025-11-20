@@ -5,25 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quantrya – Code the Future</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-/* General styles */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background: #f4f6f8;
     scroll-behavior: smooth;
-    background: #f2f2f2;
+    color: #333;
 }
 
 /* Header */
 header {
     background-color: #000033;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* Optional logo */
 header img {
     max-width: 120px;
     display: block;
@@ -34,69 +40,96 @@ header img {
 nav {
     background-color: #333;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
 }
 
 nav a {
     color: white;
-    margin: 10px;
+    margin: 12px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 nav a:hover {
     color: #00ccff;
+    text-decoration: underline;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
-    background: linear-gradient(90deg, #0055aa, #00ccff);
+    background: linear-gradient(135deg, #0055aa, #00ccff);
     color: white;
-    padding: 60px 20px;
+    padding: 100px 20px;
     text-align: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .hero h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .hero button {
-    background-color: white;
+    background: #fff;
     color: #0055aa;
-    padding: 12px 25px;
+    padding: 15px 35px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
 .hero button:hover {
-    background-color: #00ccff;
+    background: #00ccff;
     color: white;
 }
 
 /* Container */
 .container {
-    padding: 20px;
+    padding: 25px 15px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* Card styles */
+/* Cards */
 .card {
-    background-color: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 5px #ccc;
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Contact form */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Headings */
+h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #0055aa;
+}
+
+/* Contact Form */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 8px 0;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -106,8 +139,10 @@ nav a:hover {
     color: white;
     padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .contact-form button:hover {
@@ -119,7 +154,9 @@ footer {
     background-color: #000033;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 30px 15px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 </style>
 </head>
@@ -143,7 +180,9 @@ footer {
 <div class="hero" id="home">
     <h1>Welcome to Quantrya</h1>
     <p>Professional. Innovative. Future-ready.</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Contact Us
+    </button>
 </div>
 
 <div class="container">
