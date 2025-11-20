@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantrya</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f2f2f2;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #000033;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Optional logo */
+header img {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00ccff;
+}
+
+.hero {
+    background: linear-gradient(90deg, #0055aa, #00ccff);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: white;
+    color: #0055aa;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #00ccff;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+footer {
+    background-color: #000033;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <!-- Optional logo: add your image file as quantrya_logo.png -->
+    <!-- <img src="quantrya_logo.png" alt="Quantrya Logo"> -->
+    <h1>Quantrya</h1>
+    <p>Code the Future</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="home">
+    <h1>Welcome to Quantrya</h1>
+    <p>Professional. Innovative. Future-ready.</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Contact Us
+    </button>
+</div>
+
+<div class="container">
+
+    <h2 id="services">Services</h2>
+    <div class="card">
+        <ul>
+            <li>Web Development</li>
+            <li>Software Development</li>
+            <li>AI & Automation</li>
+            <li>IT Consultancy</li>
+        </ul>
+    </div>
+
+    <h2 id="about">About</h2>
+    <div class="card">
+        <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. We believe in innovation, quality, and coding excellence.</p>
+    </div>
+
+    <h2 id="contact">Contact</h2>
+    <div class="card">
+        <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p>Phone: 0703186111</p>
+        <p>Email: anthonywachiragitahi@gmail.com</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Quantrya. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
