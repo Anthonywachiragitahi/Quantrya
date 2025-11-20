@@ -8,296 +8,230 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome for Icons -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
-    color: #333;
-    background: #f4f6f8;
+    overflow-x: hidden; /* hide default horizontal overflow */
 }
 
-/* Header */
 header {
     background-color: #000033;
     color: white;
-    padding: 20px 15px;
     text-align: center;
+    padding: 15px;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 header img {
-    max-width: 120px;
+    max-width: 100px;
     display: block;
     margin: 0 auto 10px auto;
 }
 
-/* Navigation */
-nav {
-    background-color: #333;
+.navbar {
     text-align: center;
-    padding: 12px;
+    background: #333;
+    padding: 10px;
+    position: sticky;
+    top: 70px;
+    z-index: 100;
 }
 
-nav a {
+.navbar a {
     color: white;
-    margin: 12px;
+    margin: 10px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
 }
 
-nav a:hover {
+.navbar a:hover {
     color: #00ccff;
-    text-decoration: underline;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #0055aa, #00ccff);
-    /* Optional hero image: background: url('hero_image.jpg') no-repeat center center; background-size: cover; */
-    color: white;
-    min-height: 100vh; /* Full screen height */
+/* Horizontal scroll container */
+.main-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 100vh; /* full screen height */
+}
+
+section {
+    min-width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
     text-align: center;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 40px;
+/* Different backgrounds */
+#home { background: linear-gradient(135deg, #0055aa, #00ccff); }
+#services { background: #1a1a2e; }
+#about { background: #162447; }
+#ceo { background: #1f4068; }
+#contact { background: #1b1b2f; }
+
+/* Section content */
+section h1, section h2, section h3 {
     margin-bottom: 15px;
 }
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
+section p {
+    max-width: 500px;
 }
 
-.hero button {
-    background: #fff;
-    color: #0055aa;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.hero button:hover {
-    background: #00ccff;
-    color: white;
-}
-
-/* Container */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 30px 15px;
-}
-
-/* Section Headings */
-h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #0055aa;
-}
-
-/* Cards */
+/* Cards inside sections */
 .card {
-    background: white;
-    padding: 25px;
-    margin: 20px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 10px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* Services Grid */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.service-item {
-    text-align: center;
-}
-
+/* Service Icons */
 .service-item i {
     font-size: 40px;
-    color: #0055aa;
     margin-bottom: 10px;
 }
 
 /* CEO Image */
-.card img {
-    max-width: 150px;
+#ceo img {
     border-radius: 50%;
-    display: block;
-    margin: 0 auto 15px auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 150px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Contact Form */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
+/* Contact form */
+.contact-form input, .contact-form textarea {
+    width: 250px;
+    padding: 10px;
     margin: 8px 0;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    border: none;
 }
 
 .contact-form button {
-    background-color: #0055aa;
-    color: white;
-    padding: 12px 25px;
+    padding: 10px 20px;
+    border-radius: 25px;
     border: none;
-    border-radius: 30px;
+    background: #00ccff;
+    color: #fff;
     cursor: pointer;
     font-weight: 600;
     transition: 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #00ccff;
-}
-
-/* Footer */
-footer {
-    background-color: #000033;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    background: #0055aa;
 }
 
 /* Social Icons */
 .social-icons a {
     color: #fff;
-    margin: 0 10px;
-    font-size: 22px;
-    transition: 0.3s;
+    margin: 0 8px;
+    font-size: 24px;
 }
 
-.social-icons a:hover {
-    color: #00ccff;
-}
-
-/* Section backgrounds */
-#about { background-color: #e8f0f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
-#ceo { background-color: #f4f6f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
-#contact { background-color: #e8f0f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
 </style>
 </head>
-
 <body>
 
 <header>
-    <!-- Optional logo -->
-    <!-- <img src="quantrya_logo.png" alt="Quantrya Logo"> -->
     <h1>Quantrya</h1>
     <p>Code the Future</p>
 </header>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#ceo">CEO</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="hero" id="home">
-    <h1>Welcome to Quantrya</h1>
-    <p>Empowering Businesses with Future-Ready Technology</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        Contact Us
-    </button>
+<div class="navbar">
+    <a href="#home" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">Home</a>
+    <a href="#services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a>
+    <a href="#about" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a>
+    <a href="#ceo" onclick="document.getElementById('ceo').scrollIntoView({behavior:'smooth'})">CEO</a>
+    <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
 </div>
 
-<div class="container">
+<div class="main-container">
+    <!-- Home -->
+    <section id="home">
+        <h1>Welcome to Quantrya</h1>
+        <p>Empowering Businesses with Future-Ready Technology</p>
+    </section>
 
-    <h2 id="services">Our Services</h2>
-    <div class="services-grid">
-        <div class="service-item card">
+    <!-- Services -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="card service-item">
             <i class="fas fa-laptop-code"></i>
             <h3>Web Development</h3>
-            <p>Building responsive and modern websites for businesses of all sizes.</p>
+            <p>Responsive and modern websites.</p>
         </div>
-        <div class="service-item card">
+        <div class="card service-item">
             <i class="fas fa-cogs"></i>
             <h3>Software Development</h3>
-            <p>Custom software solutions tailored to your company’s needs.</p>
+            <p>Custom software solutions.</p>
         </div>
-        <div class="service-item card">
+        <div class="card service-item">
             <i class="fas fa-robot"></i>
             <h3>AI & Automation</h3>
-            <p>Smart automation tools to improve efficiency and productivity.</p>
+            <p>Smart automation tools.</p>
         </div>
-        <div class="service-item card">
+        <div class="card service-item">
             <i class="fas fa-lightbulb"></i>
             <h3>IT Consultancy</h3>
-            <p>Expert guidance to grow your business with technology.</p>
+            <p>Expert guidance for your business.</p>
         </div>
-    </div>
+    </section>
 
-    <h2 id="about">About Quantrya</h2>
-    <div id="about" class="card">
-        <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. We believe in innovation, quality, and coding excellence. Our mission is to create solutions that drive success and digital transformation worldwide.</p>
-    </div>
-
-    <h2 id="ceo">CEO</h2>
-    <div id="ceo" class="card">
-        <img src="ceo_photo.jpg" alt="CEO Photo">
-        <h3 style="text-align:center; color:#0055aa;">Anthony Wachira Gitahi</h3>
-        <p style="text-align:center;">Founder & CEO of Quantrya. Passionate about technology, innovation, and coding the future.</p>
-    </div>
-
-    <h2 id="contact">Contact Us</h2>
-    <div id="contact" class="card contact-form">
-        <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <p>Phone: 0703186111</p>
-        <p>Email: anthonywachiragitahi@gmail.com</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+    <!-- About -->
+    <section id="about">
+        <h2>About Quantrya</h2>
+        <div class="card">
+            <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. Our mission is to create solutions that drive success and digital transformation worldwide.</p>
         </div>
-    </div>
+    </section>
 
+    <!-- CEO -->
+    <section id="ceo">
+        <h2>CEO</h2>
+        <div class="card">
+            <img src="ceo_photo.jpg" alt="CEO Photo">
+            <h3>Anthony Wachira Gitahi</h3>
+            <p>Founder & CEO of Quantrya. Passionate about technology, innovation, and coding the future.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="card contact-form">
+            <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea><br>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
 </div>
-
-<footer>
-    <p>&copy; 2025 Quantrya. All rights reserved.</p>
-</footer>
 
 </body>
 </html>
