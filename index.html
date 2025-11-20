@@ -17,16 +17,16 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f6f8;
     scroll-behavior: smooth;
     color: #333;
+    background: #f4f6f8;
 }
 
 /* Header */
 header {
     background-color: #000033;
     color: white;
-    padding: 25px 20px;
+    padding: 20px 15px;
     text-align: center;
     position: sticky;
     top: 0;
@@ -61,15 +61,19 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    /* Optional: use hero image instead of gradient */
     background: linear-gradient(135deg, #0055aa, #00ccff);
-    /* background: url('hero_image.jpg') no-repeat center center; background-size: cover; */
+    /* Optional hero image: background: url('hero_image.jpg') no-repeat center center; background-size: cover; */
     color: white;
-    padding: 120px 20px;
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 0 20px;
 }
 
 .hero h1 {
@@ -101,16 +105,23 @@ nav a:hover {
 
 /* Container */
 .container {
-    padding: 30px 15px;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 30px 15px;
+}
+
+/* Section Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0055aa;
 }
 
 /* Cards */
 .card {
     background: white;
     padding: 25px;
-    margin: 20px 0;
+    margin: 20px auto;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -121,15 +132,7 @@ nav a:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Headings */
-h2 {
-    margin-top: 40px;
-    margin-bottom: 25px;
-    color: #0055aa;
-    text-align: center;
-}
-
-/* Service Cards with Icons */
+/* Services Grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -202,13 +205,18 @@ footer {
 .social-icons a:hover {
     color: #00ccff;
 }
+
+/* Section backgrounds */
+#about { background-color: #e8f0f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
+#ceo { background-color: #f4f6f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
+#contact { background-color: #e8f0f8; padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; }
 </style>
 </head>
 
 <body>
 
 <header>
-    <!-- Logo -->
+    <!-- Optional logo -->
     <!-- <img src="quantrya_logo.png" alt="Quantrya Logo"> -->
     <h1>Quantrya</h1>
     <p>Code the Future</p>
@@ -257,19 +265,19 @@ footer {
     </div>
 
     <h2 id="about">About Quantrya</h2>
-    <div class="card">
+    <div id="about" class="card">
         <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. We believe in innovation, quality, and coding excellence. Our mission is to create solutions that drive success and digital transformation worldwide.</p>
     </div>
 
     <h2 id="ceo">CEO</h2>
-    <div class="card">
+    <div id="ceo" class="card">
         <img src="ceo_photo.jpg" alt="CEO Photo">
         <h3 style="text-align:center; color:#0055aa;">Anthony Wachira Gitahi</h3>
         <p style="text-align:center;">Founder & CEO of Quantrya. Passionate about technology, innovation, and coding the future.</p>
     </div>
 
     <h2 id="contact">Contact Us</h2>
-    <div class="card contact-form">
+    <div id="contact" class="card contact-form">
         <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
