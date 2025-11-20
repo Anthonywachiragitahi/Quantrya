@@ -8,6 +8,9 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 /* General Styles */
 body {
@@ -59,11 +62,10 @@ nav a:hover {
 /* Hero Section */
 .hero {
     /* Optional: use hero image instead of gradient */
-    /* background: url('hero_image.jpg') no-repeat center center; */
-    /* background-size: cover; */
     background: linear-gradient(135deg, #0055aa, #00ccff);
+    /* background: url('hero_image.jpg') no-repeat center center; background-size: cover; */
     color: white;
-    padding: 100px 20px;
+    padding: 120px 20px;
     text-align: center;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -71,19 +73,19 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
 .hero button {
     background: #fff;
     color: #0055aa;
-    padding: 15px 35px;
+    padding: 15px 40px;
     border: none;
     border-radius: 30px;
     font-weight: 600;
@@ -99,15 +101,15 @@ nav a:hover {
 
 /* Container */
 .container {
-    padding: 25px 15px;
-    max-width: 900px;
+    padding: 30px 15px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 /* Cards */
 .card {
     background: white;
-    padding: 20px;
+    padding: 25px;
     margin: 20px 0;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -122,8 +124,26 @@ nav a:hover {
 /* Headings */
 h2 {
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #0055aa;
+    text-align: center;
+}
+
+/* Service Cards with Icons */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    text-align: center;
+}
+
+.service-item i {
+    font-size: 40px;
+    color: #0055aa;
+    margin-bottom: 10px;
 }
 
 /* CEO Image */
@@ -170,13 +190,25 @@ footer {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
+
+/* Social Icons */
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00ccff;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <!-- Optional logo -->
+    <!-- Logo -->
     <!-- <img src="quantrya_logo.png" alt="Quantrya Logo"> -->
     <h1>Quantrya</h1>
     <p>Code the Future</p>
@@ -192,7 +224,7 @@ footer {
 
 <div class="hero" id="home">
     <h1>Welcome to Quantrya</h1>
-    <p>Professional. Innovative. Future-ready.</p>
+    <p>Empowering Businesses with Future-Ready Technology</p>
     <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         Contact Us
     </button>
@@ -200,30 +232,43 @@ footer {
 
 <div class="container">
 
-    <h2 id="services">Services</h2>
-    <div class="card">
-        <ul>
-            <li>Web Development</li>
-            <li>Software Development</li>
-            <li>AI & Automation</li>
-            <li>IT Consultancy</li>
-        </ul>
+    <h2 id="services">Our Services</h2>
+    <div class="services-grid">
+        <div class="service-item card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Development</h3>
+            <p>Building responsive and modern websites for businesses of all sizes.</p>
+        </div>
+        <div class="service-item card">
+            <i class="fas fa-cogs"></i>
+            <h3>Software Development</h3>
+            <p>Custom software solutions tailored to your company’s needs.</p>
+        </div>
+        <div class="service-item card">
+            <i class="fas fa-robot"></i>
+            <h3>AI & Automation</h3>
+            <p>Smart automation tools to improve efficiency and productivity.</p>
+        </div>
+        <div class="service-item card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>IT Consultancy</h3>
+            <p>Expert guidance to grow your business with technology.</p>
+        </div>
     </div>
 
-    <h2 id="about">About</h2>
+    <h2 id="about">About Quantrya</h2>
     <div class="card">
-        <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. We believe in innovation, quality, and coding excellence.</p>
+        <p>Quantrya is a tech company focused on empowering businesses and individuals with the tools of the future. We believe in innovation, quality, and coding excellence. Our mission is to create solutions that drive success and digital transformation worldwide.</p>
     </div>
 
     <h2 id="ceo">CEO</h2>
     <div class="card">
-        <!-- Add your CEO photo in the same folder -->
         <img src="ceo_photo.jpg" alt="CEO Photo">
         <h3 style="text-align:center; color:#0055aa;">Anthony Wachira Gitahi</h3>
         <p style="text-align:center;">Founder & CEO of Quantrya. Passionate about technology, innovation, and coding the future.</p>
     </div>
 
-    <h2 id="contact">Contact</h2>
+    <h2 id="contact">Contact Us</h2>
     <div class="card contact-form">
         <form action="mailto:anthonywachiragitahi@gmail.com" method="post" enctype="text/plain">
             <input type="text" name="name" placeholder="Your Name" required>
@@ -233,6 +278,11 @@ footer {
         </form>
         <p>Phone: 0703186111</p>
         <p>Email: anthonywachiragitahi@gmail.com</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </div>
 
 </div>
