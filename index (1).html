@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quantrya - Code the Future. Expert technology solutions for web development, software development, AI automation, and IT consultancy.">
+<meta name="keywords" content="web development, software development, AI, automation, IT consultancy, technology solutions">
+<meta name="author" content="Quantrya - Anthony Wachira Gitahi">
+<title>Quantrya - Code the Future | Technology Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* Modern design system with CSS variables */
+:root {
+    --primary: #0066ff;
+    --primary-dark: #0052cc;
+    --accent: #00d9ff;
+    --neutral-900: #0f0f1a;
+    --neutral-800: #1a1a2e;
+    --neutral-700: #2a2a3e;
+    --neutral-600: #3a3a4e;
+    --neutral-100: #f5f5f8;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--neutral-900);
+    color: #e0e0e8;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 15, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 24px;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+/* Added active section indicator in header */
+.scroll-indicator {
+    font-size: 12px;
+    color: #8a8a9e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: var(--neutral-900);
+    position: sticky;
+    top: 60px;
+    z-index: 99;
+    padding: 0 24px;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.05);
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: #b0b0c0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 12px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--accent);
+}
+
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 100vh;
+}
+
+section {
+    min-width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+#home {
+    background: linear-gradient(135deg, var(--neutral-900) 0%, #1a2b4a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+#home > * {
+    position: relative;
+    z-index: 1;
+}
+
+#home img {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    object-fit: cover;
+    border: 2px solid rgba(0, 102, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#home img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 102, 255, 0.3);
+}
+
+#home h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #fff;
+    max-width: 700px;
+}
+
+#home p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #a0a0b0;
+    max-width: 600px;
+}
+
+#home button {
+    padding: 14px 36px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), #0047a3);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+}
+
+#home button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+}
+
+#services {
+    background: var(--neutral-900);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 1200px;
+}
+
+.service-card {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 217, 255, 0.05));
+    padding: 36px 28px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 217, 255, 0.1));
+    border-color: rgba(0, 102, 255, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
+}
+
+.service-card i {
+    font-size: 48px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover i {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #8a8a9e;
+}
+
+#about {
+    background: linear-gradient(135deg, var(--neutral-900) 0%, #1a2b4a 100%);
+}
+
+.about-cards-vertical {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+    max-width: 1000px;
+}
+
+.about-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 217, 255, 0.03));
+    padding: 40px 32px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    transition: all 0.3s;
+}
+
+.about-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(0, 217, 255, 0.06));
+    transform: translateY(-4px);
+    border-color: rgba(0, 102, 255, 0.3);
+}
+
+.about-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.about-card .vision {
+    background: linear-gradient(135deg, var(--primary), #0084ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-card .mission {
+    background: linear-gradient(135deg, var(--accent), #00f0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-card .motto {
+    background: linear-gradient(135deg, #ff6b9d, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-card p {
+    font-size: 15px;
+    color: #a0a0b0;
+    line-height: 1.8;
+}
+
+/* Added pricing section styling */
+#pricing {
+    background: var(--neutral-900);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+    max-width: 1300px;
+}
+
+.pricing-card {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 217, 255, 0.05));
+    padding: 40px 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    text-align: left;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.featured {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 217, 255, 0.1));
+    transform: scale(1.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 102, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.pricing-header {
+    margin-bottom: 24px;
+}
+
+.pricing-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.pricing-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #00f0ff);
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.price-period {
+    font-size: 14px;
+    color: #8a8a9e;
+}
+
+.price-description {
+    font-size: 14px;
+    color: #a0a0b0;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+    color: #b0b0c0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.pricing-features li:before {
+    content: '✓';
+    color: var(--success);
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.pricing-button {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), #0047a3);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+}
+
+.pricing-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+}
+
+/* Added testimonials section styling */
+#testimonials {
+    background: linear-gradient(135deg, var(--neutral-900) 0%, #1a2b4a 100%);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+    max-width: 1200px;
+}
+
+.testimonial-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 217, 255, 0.03));
+    padding: 36px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 102, 255, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
+}
+
+.stars {
+    color: #fbbf24;
+    margin-bottom: 16px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    font-size: 15px;
+    color: #b0b0c0;
+    margin-bottom: 24px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+}
+
+.author-title {
+    font-size: 12px;
+    color: #8a8a9e;
+}
+
+/* Added team and clients section styling */
+#team {
+    background: var(--neutral-900);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+    max-width: 1000px;
+}
+
+.team-member {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 217, 255, 0.05));
+    padding: 32px 24px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 102, 255, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
+}
+
+.team-member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    margin-bottom: 16px;
+    object-fit: cover;
+    border: 3px solid rgba(0, 102, 255, 0.2);
+}
+
+.team-member h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.team-member .role {
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #a0a0b0;
+    line-height: 1.6;
+}
+
+#clients {
+    background: linear-gradient(135deg, var(--neutral-900) 0%, #1a2b4a 100%);
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 1000px;
+}
+
+.client-logo {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 217, 255, 0.03));
+    padding: 24px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.client-logo:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 102, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(0, 217, 255, 0.06));
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.client-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #b0b0c0;
+}
+
+#ceo {
+    background: var(--neutral-900);
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 217, 255, 0.05));
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    max-width: 500px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 102, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+}
+
+#ceo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    object-fit: cover;
+    border: 2px solid rgba(0, 102, 255, 0.2);
+}
+
+#ceo h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+#ceo p {
+    font-size: 15px;
+    color: #a0a0b0;
+    line-height: 1.8;
+}
+
+#contact {
+    background: linear-gradient(135deg, var(--neutral-900) 0%, #1a2b4a 100%);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #6a6a7e;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    text-align: left;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    max-width: 400px;
+}
+
+.contact-form button {
+    margin-top: 16px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary), #0047a3);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+}
+
+.contact-form button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.payment-section {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    margin-top: 24px;
+    max-width: 400px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.payment-option {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid rgba(0, 102, 255, 0.2);
+    border-radius: 8px;
+    background: transparent;
+    color: #b0b0c0;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.payment-option.active {
+    border-color: var(--primary);
+    color: var(--accent);
+    background: rgba(0, 102, 255, 0.1);
+}
+
+.payment-option:hover {
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.social-icons a {
+    color: #a0a0b0;
+    font-size: 24px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.social-icons a:hover {
+    color: var(--accent);
+    background: rgba(0, 102, 255, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+/* Added footer styling */
+footer {
+    background: var(--neutral-800);
+    border-top: 1px solid rgba(0, 102, 255, 0.1);
+    padding: 40px 24px;
+    text-align: center;
+    color: #8a8a9e;
+    position: relative;
+    z-index: 50;
+    min-height: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #b0b0c0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    font-size: 13px;
+    color: #6a6a7e;
+    border-top: 1px solid rgba(0, 102, 255, 0.1);
+    padding-top: 16px;
+}
+
+.hamburger-menu {
+    display: none !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger-menu .bar {
+    width: 28px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: var(--neutral-800);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 12px;
+    transition: right 0.3s ease;
+    z-index: 998;
+    border-left: 1px solid rgba(0, 102, 255, 0.1);
+    overflow-y: auto;
+}
+
+.slide-menu a {
+    color: #e0e0e8;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 24px;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.slide-menu a:hover {
+    color: var(--accent);
+    background: rgba(0, 102, 255, 0.1);
+    padding-left: 32px;
+    border-left-color: var(--primary);
+}
+
+#paypal-button-container {
+    padding: 20px 24px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none !important;
+    }
+
+    .hamburger-menu {
+        display: flex !important;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+
+    section h2 {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    #home h1 {
+        font-size: 40px;
+    }
+
+    #home p {
+        font-size: 16px;
+    }
+
+    .service-grid,
+    .about-cards-vertical,
+    .pricing-grid,
+    .testimonials-grid,
+    .team-grid,
+    .clients-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .pricing-card.featured:hover {
+        transform: scale(1) translateY(-8px);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        max-width: 100%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 12px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Enhanced header with scroll indicator -->
+<header>
+    <h1>Quantrya</h1>
+    <div class="scroll-indicator" id="scrollIndicator">Home</div>
+</header>
+
+<!-- Updated navbar with pricing and testimonials links -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#team">Team</a>
+    <a href="#about">About</a>
+    <a href="#ceo">CEO</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<button class="hamburger-menu" id="hamburger" aria-label="Toggle menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</button>
+
+<div class="slide-menu" id="slideMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#team">Team</a>
+    <a href="#about">About</a>
+    <a href="#ceo">CEO</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<div class="main-container">
+
+<section id="home">
+    <img src="ceo_photo.jpg" alt="CEO Photo - Anthony Wachira Gitahi">
+    <h1>Welcome to Quantrya</h1>
+    <p>Empowering Businesses with Future-Ready Technology</p>
+    <button onclick="document.querySelector('.main-container').scrollTo({ left: document.getElementById('contact').offsetLeft, behavior:'smooth' })">Contact Us</button>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+        <div class="service-card" role="article">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Development</h3>
+            <p>Responsive and modern websites tailored to your business needs.</p>
+        </div>
+        <div class="service-card" role="article">
+            <i class="fas fa-cogs"></i>
+            <h3>Software Development</h3>
+            <p>Custom software solutions that scale with your business.</p>
+        </div>
+        <div class="service-card" role="article">
+            <i class="fas fa-robot"></i>
+            <h3>AI & Automation</h3>
+            <p>Intelligent automation tools to streamline operations.</p>
+        </div>
+        <div class="service-card" role="article">
+            <i class="fas fa-lightbulb"></i>
+            <h3>IT Consultancy</h3>
+            <p>Expert guidance and strategic planning for your tech initiatives.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Added pricing section -->
+<section id="pricing">
+    <h2>Our Pricing</h2>
+    <div class="pricing-grid">
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>Starter</h3>
+                <p class="price-description">Perfect for small projects and startups</p>
+            </div>
+            <div class="price">$500</div>
+            <p class="price-period">per project</p>
+            <ul class="pricing-features">
+                <li>5 pages website</li>
+                <li>Mobile responsive</li>
+                <li>Basic SEO</li>
+                <li>1 month support</li>
+            </ul>
+            <button class="pricing-button">Get Started</button>
+        </div>
+
+        <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-header">
+                <h3>Professional</h3>
+                <p class="price-description">Ideal for growing businesses</p>
+            </div>
+            <div class="price">$2,000</div>
+            <p class="price-period">per project</p>
+            <ul class="pricing-features">
+                <li>Unlimited pages</li>
+                <li>Advanced SEO</li>
+                <li>Custom features</li>
+                <li>3 months support</li>
+                <li>Analytics setup</li>
+            </ul>
+            <button class="pricing-button">Get Started</button>
+        </div>
+
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <p class="price-description">For large-scale operations</p>
+            </div>
+            <div class="price">Custom</div>
+            <p class="price-period">contact for quote</p>
+            <ul class="pricing-features">
+                <li>Full custom development</li>
+                <li>API integration</li>
+                <li>Dedicated support</li>
+                <li>6 months support</li>
+                <li>Team training</li>
+            </ul>
+            <button class="pricing-button">Contact Sales</button>
+        </div>
+    </div>
+</section>
+
+<!-- Added testimonials section -->
+<section id="testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Quantrya transformed our business with their innovative solutions. The team was professional and delivered beyond expectations."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JD</div>
+                <div class="author-info">
+                    <div class="author-name">James Doe</div>
+                    <div class="author-title">CEO, TechCorp</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Working with Quantrya was a game-changer. Their AI solutions increased our efficiency by 40%. Highly recommended!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">SM</div>
+                <div class="author-info">
+                    <div class="author-name">Sarah Miller</div>
+                    <div class="author-title">Operations Manager, Innovation Ltd</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The custom software they built for us has been invaluable. Great support and continuous improvements throughout the project."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">MC</div>
+                <div class="author-info">
+                    <div class="author-name">Michael Chen</div>
+                    <div class="author-title">Director, Global Solutions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Added team section -->
+<section id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+        <div class="team-member">
+            <div class="team-member-avatar" style="background: linear-gradient(135deg, #0066ff, #00d9ff);">A</div>
+            <h3>Anthony Wachira</h3>
+            <div class="role">Founder & CEO</div>
+            <p>Visionary leader passionate about coding and technology innovation.</p>
+        </div>
+
+        <div class="team-member">
+            <div class="team-member-avatar" style="background: linear-gradient(135deg, #00d9ff, #00f0ff);">E</div>
+            <h3>Expert Developer</h3>
+            <div class="role">Lead Developer</div>
+            <p>Full-stack expert with 8+ years of experience in web development.</p>
+        </div>
+
+        <div class="team-member">
+            <div class="team-member-avatar" style="background: linear-gradient(135deg, #00f0ff, #0066ff);">D</div>
+            <h3>Design Specialist</h3>
+            <div class="role">UI/UX Designer</div>
+            <p>Creative designer focused on user experience and modern interfaces.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Added clients section -->
+<section id="clients">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+        <div class="client-logo" role="article">
+            <div class="client-name">TechCorp</div>
+        </div>
+        <div class="client-logo" role="article">
+            <div class="client-name">Innovation Ltd</div>
+        </div>
+        <div class="client-logo" role="article">
+            <div class="client-name">Global Solutions</div>
+        </div>
+        <div class="client-logo" role="article">
+            <div class="client-name">StartupHub</div>
+        </div>
+        <div class="client-logo" role="article">
+            <div class="client-name">Enterprise Co</div>
+        </div>
+        <div class="client-logo" role="article">
+            <div class="client-name">Tech Partners</div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Quantrya</h2>
+    <div class="about-cards-vertical">
+        <div class="about-card">
+            <h3 class="vision">Vision</h3>
+            <p>To be a global leader in shaping the future of technology and empowering businesses worldwide.</p>
+        </div>
+        <div class="about-card">
+            <h3 class="mission">Mission</h3>
+            <p>Empowering businesses and individuals through innovative, scalable, and cutting-edge technology solutions.</p>
+        </div>
+        <div class="about-card">
+            <h3 class="motto">Motto</h3>
+            <p>"Code the Future"</p>
+        </div>
+    </div>
+</section>
+
+<section id="ceo">
+    <h2>CEO</h2>
+    <div class="card">
+        <img src="ceo_photo.jpg" alt="CEO Anthony Wachira Gitahi">
+        <h3>Anthony Wachira Gitahi</h3>
+        <p>Founder & CEO of Quantrya. Passionate about technology, innovation, and coding the future. With a vision to revolutionize how businesses leverage technology.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <div class="card contact-form">
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <input type="text" id="name" name="name" placeholder="Your Name" required aria-label="Your Name">
+            <div class="error-message" id="nameError"></div>
+
+            <input type="email" id="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+            <div class="error-message" id="emailError"></div>
+
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" aria-label="Your Phone Number">
+            <div class="error-message" id="phoneError"></div>
+
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required aria-label="Your Message"></textarea>
+            <div class="error-message" id="messageError"></div>
+
+            <button type="submit" aria-label="Send Message">Send Message</button>
+        </form>
+
+        <!-- Added dynamic payment section -->
+        <div class="payment-section">
+            <h3 style="margin-bottom: 16px; color: #fff; font-size: 18px;">Payment Options</h3>
+            
+            <div class="payment-options">
+                <button class="payment-option active" onclick="switchPayment('mpesa')">M-Pesa</button>
+                <button class="payment-option" onclick="switchPayment('paypal')">PayPal</button>
+            </div>
+
+            <div id="mpesaPayment">
+                <input type="tel" id="mpesaPhone" placeholder="Phone: 2547XXXXXXXX" style="width: 100%; max-width: 400px; padding: 10px 12px; margin: 12px 0; border-radius: 8px; border: 1px solid rgba(0, 102, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-family: 'Inter', sans-serif;" aria-label="M-Pesa Phone Number">
+                <input type="number" id="mpesaAmount" placeholder="Amount (Ksh)" min="1" style="width: 100%; max-width: 400px; padding: 10px 12px; margin: 12px 0; border-radius: 8px; border: 1px solid rgba(0, 102, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-family: 'Inter', sans-serif;" aria-label="Payment Amount">
+                <button type="button" onclick="processMpesaPayment()" style="width: 100%; max-width: 400px; padding: 10px 12px; margin: 12px 0; border-radius: 8px; border: none; background: linear-gradient(135deg, var(--primary), #0047a3); color: #fff; font-weight: 600; cursor: pointer; transition: all 0.3s;">Pay with M-Pesa</button>
+            </div>
+
+            <div id="paypalPayment" style="display: none;">
+                <input type="number" id="paypalAmount" placeholder="Amount (USD)" min="1" step="0.01" style="width: 100%; max-width: 400px; padding: 10px 12px; margin: 12px 0; border-radius: 8px; border: 1px solid rgba(0, 102, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-family: 'Inter', sans-serif;" aria-label="PayPal Amount">
+                <div id="paypal-button-container-dynamic"></div>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/anthony-wachira-094b30215" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/anthony_wachira_gitahi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/anthony.wachiragitahi" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://x.com/AnthonyWachiraG" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<!-- Added footer -->
+<footer role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+            <a href="mailto:anthonywachiragitahi@gmail.com">Email</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Quantrya. All rights reserved. | <a href="#" style="color: #8a8a9e;">Privacy Policy</a> | <a href="#" style="color: #8a8a9e;">Terms of Service</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+<script>
+const mainContainer = document.querySelector('.main-container');
+const scrollIndicator = document.getElementById('scrollIndicator');
+const navLinks = document.querySelectorAll('.navbar a');
+
+const sectionNames = ['home', 'services', 'pricing', 'testimonials', 'team', 'about', 'ceo', 'contact'];
+
+mainContainer.addEventListener('scroll', () => {
+    const scrollLeft = mainContainer.scrollLeft;
+    const sectionIndex = Math.round(scrollLeft / mainContainer.clientWidth);
+    const currentSection = sectionNames[sectionIndex] || 'home';
+    
+    scrollIndicator.textContent = currentSection.charAt(0).toUpperCase() + currentSection.slice(1);
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active');
+        }
+    });
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById(link.getAttribute('href').substring(1));
+        mainContainer.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+    });
+});
+
+const hamburger = document.getElementById('hamburger');
+const slideMenu = document.getElementById('slideMenu');
+
+hamburger.addEventListener('click', () => {
+    slideMenu.style.right = (slideMenu.style.right === '0px') ? '-300px' : '0px';
+});
+
+document.querySelectorAll('#slideMenu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        if(targetId) {
+            e.preventDefault();
+            mainContainer.scrollTo({ left: document.getElementById(targetId).offsetLeft, behavior: 'smooth' });
+        }
+        slideMenu.style.right = '-300px';
+    });
+});
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    clearErrors();
+    let isValid = true;
+    
+    if(!name) {
+        showError('nameError', 'Name is required');
+        isValid = false;
+    }
+    
+    if(!email) {
+        showError('emailError', 'Email is required');
+        isValid = false;
+    } else if(!isValidEmail(email)) {
+        showError('emailError', 'Please enter a valid email');
+        isValid = false;
+    }
+    
+    if(phone && !isValidPhone(phone)) {
+        showError('phoneError', 'Please enter a valid phone number');
+        isValid = false;
+    }
+    
+    if(!message) {
+        showError('messageError', 'Message is required');
+        isValid = false;
+    }
+    
+    if(isValid) {
+        alert('Thank you for your message! We will contact you soon.');
+        document.getElementById('contactForm').reset();
+    }
+}
+
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(el => el.classList.remove('error'));
+}
+
+function showError(elementId, message) {
+    const errorEl = document.getElementById(elementId);
+    const fieldId = elementId.replace('Error', '');
+    const field = document.getElementById(fieldId);
+    
+    errorEl.textContent = message;
+    field.classList.add('error');
+}
+
+function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+function isValidPhone(phone) {
+    const regex = /^[0-9\-\+\s$$$$]{7,}$/;
+    return regex.test(phone);
+}
+
+function switchPayment(method) {
+    const mpesaDiv = document.getElementById('mpesaPayment');
+    const paypalDiv = document.getElementById('paypalPayment');
+    const buttons = document.querySelectorAll('.payment-option');
+    
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    if(method === 'mpesa') {
+        mpesaDiv.style.display = 'block';
+        paypalDiv.style.display = 'none';
+        buttons[0].classList.add('active');
+    } else {
+        mpesaDiv.style.display = 'none';
+        paypalDiv.style.display = 'block';
+        buttons[1].classList.add('active');
+        initPayPalDynamic();
+    }
+}
+
+function processMpesaPayment() {
+    const phone = document.getElementById('mpesaPhone').value.trim();
+    const amount = document.getElementById('mpesaAmount').value;
+    
+    if(!phone || !amount) {
+        alert('Please enter both phone number and amount');
+        return;
+    }
+    
+    if(!isValidPhone(phone)) {
+        alert('Please enter a valid phone number');
+        return;
+    }
+    
+    fetch('https://your-backend.com/pay', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ phone, amount })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success) {
+            alert(`STK Push sent to ${phone}! Check your phone to complete payment of Ksh ${amount}.`);
+        } else {
+            alert('Payment failed: ' + (data.message || 'Unknown error'));
+        }
+    })
+    .catch(err => {
+        alert('Error connecting to payment server: ' + err.message);
+    });
+}
+
+function initPayPalDynamic() {
+    const amount = document.getElementById('paypalAmount').value || '10.00';
+    
+    if(document.getElementById('paypal-button-container-dynamic').innerHTML.trim()) {
+        return;
+    }
+    
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: { value: amount },
+                    payee: { email_address: 'anthonyelsin@yahoo.com' }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Payment completed by ' + details.payer.name.given_name + ' for $' + amount);
+            });
+        },
+        onError: function(err) {
+            alert('Payment error: ' + err);
+        }
+    }).render('#paypal-button-container-dynamic');
+}
+
+</script>
+
+</body>
+</html>
