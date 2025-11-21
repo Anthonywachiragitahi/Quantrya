@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quantrya - Code the Future</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 body {
     margin: 0;
@@ -17,7 +15,6 @@ body {
     scroll-behavior: smooth;
     background: #121212;
 }
-
 header {
     position: sticky;
     top: 0;
@@ -26,13 +23,7 @@ header {
     text-align: center;
     z-index: 100;
 }
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: 700;
-}
-
+header h1 { margin: 0; font-size: 28px; font-weight: 700; }
 .navbar {
     display: flex;
     justify-content: center;
@@ -42,7 +33,6 @@ header h1 {
     z-index: 100;
     flex-wrap: wrap;
 }
-
 .navbar a {
     color: #fff;
     margin: 10px 15px;
@@ -50,7 +40,6 @@ header h1 {
     font-weight: 600;
     position: relative;
 }
-
 .navbar a::after {
     content: '';
     display: block;
@@ -62,16 +51,13 @@ header h1 {
     bottom: -5px;
     left: 0;
 }
-
 .navbar a:hover::after { width: 100%; }
-
 .main-container {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     height: 100vh;
 }
-
 section {
     min-width: 100vw;
     height: 100vh;
@@ -85,11 +71,7 @@ section {
     text-align: center;
     scroll-snap-align: start;
 }
-
-#home {
-    background: linear-gradient(135deg, #0055aa, #00ccff);
-}
-
+#home { background: linear-gradient(135deg, #0055aa, #00ccff); }
 #home h1 { font-size: 48px; margin-bottom: 20px; }
 #home p { font-size: 20px; margin-bottom: 30px; }
 #home img { width: 200px; border-radius: 50%; margin-bottom: 30px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
@@ -98,13 +80,11 @@ section {
     background: #fff; color: #0055aa; font-weight: 600; cursor: pointer; transition: 0.3s;
 }
 #home button:hover { background: #00ccff; color: #fff; }
-
 #services { background: #1a1a2e; }
 .service-grid { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
 .service-card { width: 280px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
 .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
 .service-card i { font-size: 40px; color: #00ccff; margin-bottom: 10px; }
-
 #about { background: #162447; }
 .about-cards-vertical { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
 .about-card { width: 280px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
@@ -113,10 +93,8 @@ section {
 .about-card .mission { color: #ffcc00; }
 .about-card .motto { color: #ff66cc; }
 .about-card p { font-size: 16px; line-height: 1.5; }
-
 #ceo { background: #1f4068; }
 #ceo img { width: 180px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
-
 #contact { background: #1b1b2f; }
 .contact-form input, .contact-form textarea { width: 260px; padding: 12px; margin: 8px 0; border-radius: 12px; border: none; }
 .contact-form button {
@@ -124,21 +102,37 @@ section {
     border: none; background: #00ccff; color: #fff; font-weight: 600; cursor: pointer; transition: 0.3s;
 }
 .contact-form button:hover { background: #0055aa; }
-
 .social-icons a { color: #fff; margin: 0 10px; font-size: 28px; transition: 0.3s; }
 .social-icons a:hover { color: #00ccff; }
-
-.hamburger-menu { display: none; position: fixed; top: 20px; right: 20px; z-index: 999; cursor: pointer; flex-direction: column; gap: 6px; }
-.hamburger-menu .bar { width: 30px; height: 4px; background: #00ccff; border-radius: 2px; }
-
-.slide-menu { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #1a1a2e; display: flex; flex-direction: column; padding-top: 60px; gap: 20px; transition: right 0.3s ease; z-index: 998; }
+/* Hamburger menu */
+.hamburger-menu {
+    display: flex !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+.hamburger-menu .bar { width: 35px; height: 5px; background: #00ccff; border-radius: 3px; }
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 998;
+}
 .slide-menu a { color: #fff; text-decoration: none; font-size: 18px; font-weight: 600; padding-left: 20px; }
 .slide-menu a:hover { color: #00ccff; }
-
-@media (max-width: 768px) {
-    .navbar { display: none !important; }
-    .hamburger-menu { display: flex !important; }
-}
+@media (max-width: 768px) { .navbar { display: none !important; } }
 </style>
 </head>
 <body>
@@ -237,11 +231,9 @@ document.querySelectorAll('.navbar a').forEach(link => {
 
 const hamburger = document.getElementById('hamburger');
 const slideMenu = document.getElementById('slideMenu');
-
 hamburger.addEventListener('click', () => {
     slideMenu.style.right = (slideMenu.style.right === '0px') ? '-250px' : '0px';
 });
-
 document.querySelectorAll('#slideMenu a').forEach(link => {
     link.addEventListener('click', function(e){
         const targetId = this.getAttribute('href').substring(1);
@@ -253,14 +245,28 @@ document.querySelectorAll('#slideMenu a').forEach(link => {
     });
 });
 
-// M-Pesa placeholder
+// M-Pesa Integration
 document.getElementById('mpesaPay').addEventListener('click', async function(e){
     e.preventDefault();
     slideMenu.style.right = '-250px';
-    const amount = prompt("Enter amount to pay Ksh:");
-    if(!amount) return;
-    alert("M-Pesa payment triggered! Backend server required for STK Push.");
-    // Here frontend sends amount to backend API for M-Pesa
+    const phone = prompt("Enter your phone number (2547XXXXXXXX):");
+    const amount = prompt("Enter amount in Ksh:");
+    if(!phone || !amount) return;
+    try {
+        const response = await fetch('https://your-backend.com/pay', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({ phone, amount })
+        });
+        const data = await response.json();
+        if(data.success){
+            alert("STK Push sent! Check your phone to complete payment.");
+        } else {
+            alert("Payment failed: " + data.message);
+        }
+    } catch(err){
+        alert("Error connecting to payment server: " + err);
+    }
 });
 </script>
 
